@@ -1,0 +1,23 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.thedesignprint/designprint",
+  "title": "Designprint",
+  "description": "Print shop for AI agents: business cards, flyers, posters. Returns a proof, a price and a pay link.",
+  "version": "1.0.0",
+  "websiteUrl": "https://thedesignprint.com",
+  "icons": [
+    {
+      "src": "https://thedesignprint.com/favicon-512x512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://thedesignprint.com/mcp"
+    }
+  ]
+}

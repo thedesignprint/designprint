@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "designprint": {
+      "type": "http",
+      "url": "https://thedesignprint.com/mcp"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "name": "designprint",
+  "displayName": "Designprint",
+  "version": "1.0.0",
+  "repo": "thedesignprint/designprint",
+  "license": "MIT",
+  "homepage": "https://thedesignprint.com",
+  "mcpUrl": "https://thedesignprint.com/mcp",
+  "author": {
+    "name": "Designprint",
+    "email": "team@thedesignprint.com",
+    "url": "https://thedesignprint.com"
+  },
+  "links": {
+    "docs": "https://thedesignprint.com/skill.md",
+    "support": "https://thedesignprint.com/contact",
+    "privacy": "https://thedesignprint.com/privacy",
+    "terms": "https://thedesignprint.com/terms",
+    "icon": "https://thedesignprint.com/favicon-512x512.png"
+  },
+  "tagline": "Make business cards and print flyers, posters and menus from the conversation.",
+  "description": "Print for AI agents. Makes business cards from a name and contact details, and prints flyers, posters, menus, invitations and signs designed in the conversation, at an exact size. Returns a proof, the price and one link where the person pays as a guest. Ships within the United States.",
+  "shortDescription": "Print cards, flyers and posters",
+  "longDescription": "Designprint is a print shop your agent can use. Ask for business cards and it makes a two-sided card from your name and contact details. Or have the agent design a flyer, poster, menu, invitation or sign and print it at an exact size. You get a proof, the price and one link to approve it and pay as a guest. Nothing is printed until you pay. Delivery is within the United States.",
+  "prompts": [
+    "Make business cards for me and send me the link to order them",
+    "Design a flyer for my event and get it printed",
+    "Print this poster at 18 x 24 inches and ship it to me"
+  ],
+  "keywords": [
+    "print",
+    "printing",
+    "business-cards",
+    "flyers",
+    "posters",
+    "menus",
+    "invitations",
+    "design",
+    "mcp"
+  ],
+  "brandColor": "#0E1B2C",
+  "brandColorDark": "#D4784A",
+  "categories": {
+    "claude": "design",
+    "codex": "Creativity",
+    "cursor": "integrations"
+  },
+  "registry": {
+    "name": "com.thedesignprint/designprint",
+    "version": "1.0.0",
+    "description": "Print shop for AI agents: business cards, flyers, posters. Returns a proof, a price and a pay link."
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "designprint",
+  "version": "1.0.0",
+  "description": "Print for AI agents. Makes business cards from a name and contact details, and prints flyers, posters, menus, invitations and signs designed in the conversation, at an exact size. Returns a proof, the price and one link where the person pays as a guest. Ships within the United States.",
+  "author": {
+    "name": "Designprint",
+    "email": "team@thedesignprint.com",
+    "url": "https://thedesignprint.com"
+  },
+  "homepage": "https://thedesignprint.com",
+  "repository": "https://github.com/thedesignprint/designprint",
+  "license": "MIT",
+  "keywords": [
+    "print",
+    "printing",
+    "business-cards",
+    "flyers",
+    "posters",
+    "menus",
+    "invitations",
+    "design",
+    "mcp"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Designprint",
+        "shortDescription": "Print cards, flyers and posters",
+        "longDescription": "Designprint is a print shop your agent can use. Ask for business cards and it makes a two-sided card from your name and contact details. Or have the agent design a flyer, poster, menu, invitation or sign and print it at an exact size. You get a proof, the price and one link to approve it and pay as a guest. Nothing is printed until you pay. Delivery is within the United States.",
+        "developerName": "Designprint",
+        "category": "Creativity",
+        "capabilities": [
+          "Interactive",
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://thedesignprint.com",
+        "supportURL": "https://thedesignprint.com/contact",
+        "privacyPolicyURL": "https://thedesignprint.com/privacy",
+        "termsOfServiceURL": "https://thedesignprint.com/terms",
+        "defaultPrompt": [
+          "Make business cards for me and send me the link to order them",
+          "Design a flyer for my event and get it printed",
+          "Print this poster at 18 x 24 inches and ship it to me"
+        ],
+        "brandColor": "#0E1B2C",
+        "brandColorDark": "#D4784A",
+        "composerIcon": "./assets/logo.png",
+        "logo": "./assets/logo.png"
+      }
+    }
+  }
+}

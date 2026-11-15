@@ -1,0 +1,25 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Manifests match plugin.config.json
+        run: node scripts/sync.mjs --check
+
+      - name: Claude Code accepts the plugin
+        run: npx -y @anthropic-ai/claude-code plugin validate . --strict
+
+      - name: The skill is found by the skills installer
+        run: npx -y skills add . --list
