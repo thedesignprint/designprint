@@ -24,9 +24,8 @@ Pick your agent. Each one is a single step.
 
 ```
 codex plugin marketplace add thedesignprint/designprint
+codex plugin add designprint@designprint
 ```
-
-Then open `/plugins` in Codex and install Designprint.
 
 **Cursor**
 
