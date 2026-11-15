@@ -2,7 +2,7 @@
 
 Print for AI agents. Your agent designs it, Designprint prints it and ships it.
 
-- **Business cards** from a name and contact details. Two sides, four designs.
+- **Business cards** from a name and contact details. Two sides, in a choice of ready-made designs.
 - **Flyers, posters, menus, invitations and signs** that the agent designs in the conversation, printed at the exact size you ask for.
 - You get a proof, the price and one link. You pay as a guest. Nothing is printed until you pay.
 - Delivery is within the United States.
@@ -81,8 +81,11 @@ The answer holds the proof of both sides, the price and the link to order. To li
 
 ## What the agent can do
 
+The server lists its own tools, and more are added over time. Send `tools/list` to see what it offers now. Today they include:
+
 | Tool | What it does |
 | --- | --- |
+| `show_card_designs` | Shows a person's card in every design, each with its own order link, so they can choose by looking. |
 | `create_business_card` | Makes a two-sided business card from a person's details and returns the proof, the price and the order link. |
 | `update_business_card` | Changes a card that was already made. The link stays the same. |
 | `get_business_card` | Shows a card as it is now. |

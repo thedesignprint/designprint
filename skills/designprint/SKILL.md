@@ -15,7 +15,8 @@ Designprint is a print shop you can use on a person's behalf. You prepare the or
 
 | The user wants | Do this |
 | --- | --- |
-| Business cards | Call `create_business_card` with their details. You do not design the card. |
+| Business cards, and has not chosen a design | Call `show_card_designs` with their details. It shows their card in every design, each with its own order link. |
+| Business cards in a design they named | Call `create_business_card` with their details. You do not design the card. |
 | A change to a card you made | Call `update_business_card`. The card keeps its link. |
 | A flyer, poster, menu, invitation or sign | Design it as HTML at the true print size (see "Designing for print"), then call `print_design`. |
 | A print of an image they already have | Call `print_design` with `image_url`. |
@@ -26,7 +27,9 @@ If you have just designed something that is meant to be physical and the user ha
 
 ## Calling the tools
 
-**If the Designprint tools are connected** (tools named `create_business_card`, `print_design` and so on), call them. Their input schemas are the source of truth.
+The server is the source of truth. Its tool list, each tool's description and each input schema say what exists right now, and the service adds tools and card designs over time. Where they differ from this page, follow the server. If a tool named here is not in the server's list, use the ones that are.
+
+**If the Designprint tools are connected** (tools named `create_business_card`, `print_design` and so on), call them.
 
 **If they are not connected**, call the same tools over HTTPS. There is nothing to install and no key:
 
@@ -47,17 +50,19 @@ Set `channel` to the name of the agent you are running in, for example `claude-c
 ## Business cards
 
 1. Ask for the person's **name** and at least one way to reach them (phone, email or website). Everything else is optional. Never invent a detail they did not give.
-2. Call `create_business_card`. Useful inputs: `name`, `title`, `company`, `tagline`, `phone`, `email`, `website`, `address`, `logo_url`, `style` (`classic`, `noir`, `warm` or `bold`), `accent_color` (a hex color, such as their brand color) and `quantity`.
-3. Show the user both sides. The pictures are in the result (`previewUrl` is the front, `backPreviewUrl` the back).
-4. Tell them the price from the result. When you passed `quantity`, the result states the total with shipping. Never quote a price from memory.
-5. Give them the order link (`orderUrl`). They choose a quantity and shipping there and pay as a guest.
+2. Useful inputs for the card tools: `name`, `title`, `company`, `tagline`, `phone`, `email`, `website`, `address`, `logo_url`, `accent_color` (a hex color, such as their brand color) and `quantity`.
+3. **If they have not chosen a design,** call `show_card_designs`. It makes their card in every design and returns each one with its pictures and its own order link, plus one page that shows them all. Present every design the way the tool's description says, and let the user choose. Do not choose for them.
+4. **If they named a design,** call `create_business_card` with `style` set to it. The tool's input schema lists the designs that exist.
+5. Show the user both sides. The pictures are in the result (`previewUrl` is the front, `backPreviewUrl` the back).
+6. Tell them the price from the result. When you passed `quantity`, the result states the total with shipping. Never quote a price from memory.
+7. Give them the order link (`orderUrl`). They choose a quantity and shipping there and pay as a guest.
 
 Good to know:
 
 - A logo must be an https link. If you only have a file, upload it first and use the link that comes back:
   `curl -s --data-binary @logo.png -H 'content-type: image/png' https://thedesignprint.com/v1/logos` (PNG, JPG or WebP, up to 2 MB).
 - If `warnings` in the result is not empty, tell the user before you send the link. It lists what was adjusted, such as a line too long to print in full.
-- To change anything afterwards, call `update_business_card` with `order` set to the order link, plus only the fields that change. An empty string takes a field off the card. This works until the card is paid for.
+- To change anything afterwards, call `update_business_card` with `order` set to the order link, plus only the fields that change. An empty string takes a field off the card. This works until the card is paid for. After `show_card_designs`, use the link of the design the user picked.
 - Call `create_business_card` once per card. Calling it again makes a second card with a different link.
 - The person can also change the card themselves before paying, so call `get_business_card` before you answer a question about a card you made earlier.
 
@@ -132,7 +137,7 @@ To print an image that already exists, pass `image_url` (a public PNG, JPG, WebP
 - Delivery is within the United States only.
 - Physical print only. Do not use this for social posts, slides or web graphics.
 - `print_design` prints single-sided, one page, 1 to 60 inches on each side.
-- Business cards are 3.5 x 2 inches, printed on both sides, in four designs.
+- Business cards are 3.5 x 2 inches, printed on both sides, in a set of ready-made designs.
 - Every price comes from the tool results. They can change, so never state one from memory.
 
 Full reference for every input and for the plain REST endpoints: https://thedesignprint.com/skill.md. Site index for agents: https://thedesignprint.com/llms.txt.

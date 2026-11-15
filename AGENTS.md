@@ -25,6 +25,7 @@ Generated files:
 
 - Keep the skill true to the live service. The tool list on the server is the source of truth: `tools/list` on `https://thedesignprint.com/mcp`. Do not describe a tool or an input that the live server does not have.
 - Do not put prices in any file. Prices come from the tool results.
+- Do not state how many tools or card designs there are, and do not list the design names. Both change on the server; point at the live list.
 - Keep every path inside this folder. Hosts copy the plugin into their own cache, so a path outside it breaks.
 - Do not move `skills/`, `agents/`, `assets/` or any manifest.
 

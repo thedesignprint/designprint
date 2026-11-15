@@ -2,7 +2,7 @@
   "$schema": "https://antigravity.google/schemas/v1/plugin.json",
   "name": "designprint",
   "displayName": "Designprint",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Print for AI agents. Makes business cards from a name and contact details, and prints flyers, posters, menus, invitations and signs designed in the conversation, at an exact size. Returns a proof, the price and one link where the person pays as a guest. Ships within the United States.",
   "logo": "assets/logo.png",
   "suggestedPrompts": [
