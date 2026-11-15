@@ -34,7 +34,8 @@ codex plugin add designprint@designprint
 **GitHub Copilot CLI**
 
 ```
-copilot plugin install thedesignprint/designprint
+copilot plugin marketplace add thedesignprint/designprint
+copilot plugin install designprint@designprint
 ```
 
 **Antigravity**
