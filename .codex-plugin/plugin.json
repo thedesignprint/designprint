@@ -1,7 +1,7 @@
 {
   "name": "designprint",
-  "version": "1.0.1",
-  "description": "Print for AI agents. Makes business cards from a name and contact details, and prints flyers, posters, menus, invitations and signs designed in the conversation, at an exact size. Returns a proof, the price and one link where the person pays as a guest. Ships within the United States.",
+  "version": "1.0.2",
+  "description": "Print for AI agents. Makes business cards from a name and contact details, and prints flyers, posters, menus, invitations and postcards designed in the conversation, at an exact size. Returns a proof, the price and one link where the person pays as a guest. Ships within the United States.",
   "author": {
     "name": "Designprint",
     "email": "team@thedesignprint.com",
@@ -26,7 +26,7 @@
   "interface": {
     "displayName": "Designprint",
     "shortDescription": "Print cards, flyers and posters",
-    "longDescription": "Designprint is a print shop your agent can use. Ask for business cards and it makes a two-sided card from your name and contact details. Or have the agent design a flyer, poster, menu, invitation or sign and print it at an exact size. You get a proof, the price and one link to approve it and pay as a guest. Nothing is printed until you pay. Delivery is within the United States.",
+    "longDescription": "Designprint is a print shop your agent can use. Ask for business cards and it makes a two-sided card from your name and contact details. Or have the agent design a flyer, poster, menu, invitation or postcard and print it at an exact size. You get a proof, the price and one link to approve it and pay as a guest. Nothing is printed until you pay. Delivery is within the United States.",
     "developerName": "Designprint",
     "category": "Creativity",
     "capabilities": [
