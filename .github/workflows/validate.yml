@@ -21,5 +21,8 @@ jobs:
       - name: Claude Code accepts the plugin
         run: npx -y @anthropic-ai/claude-code plugin validate . --strict
 
+      - name: Claude Code accepts the claude/ folder the directory lists
+        run: npx -y @anthropic-ai/claude-code plugin validate claude --strict
+
       - name: The skill is found by the skills installer
         run: npx -y skills add . --list

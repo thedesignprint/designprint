@@ -173,6 +173,26 @@ const files = {
   },
 };
 
+// Claude's plugin directory accepts only the files Claude Code reads (no other
+// agents' manifests, no scripts, no SVG). claude/ holds exactly those, and is
+// the path submitted to the directory. Never edit claude/ by hand.
+files["claude/.claude-plugin/plugin.json"] = { ...files[".claude-plugin/plugin.json"], mcpServers: "./.mcp.json" };
+files["claude/.mcp.json"] = files["agents/claude/.mcp.json"];
+const copies = {
+  [`claude/skills/${name}/SKILL.md`]: `skills/${name}/SKILL.md`,
+  "claude/assets/logo.png": "assets/logo.png",
+};
+const texts = {
+  "claude/README.md": `# Designprint for Claude Code
+
+This folder is the Designprint plugin for Claude Code, holding only the files Claude Code reads. It is the path listed in the Claude plugin directory.
+
+\`scripts/sync.mjs\` writes it from the repository root. Edit the root and run \`node scripts/sync.mjs\`; do not edit this folder by hand.
+
+Installing, and everything else: see the [repository README](${repoUrl}#readme).
+`,
+};
+
 // Limits the hosts enforce. Checked here so a bad edit fails before it ships.
 const problems = [];
 const limit = (label, text, max) => {
@@ -202,12 +222,17 @@ if (!existsSync(skillPath)) {
   if (/[<>]/.test(description)) problems.push("SKILL.md description must not contain < or >.");
 }
 
+const outputs = Object.entries(files).map(([path, value]) => [path, Buffer.from(JSON.stringify(value, null, 2) + "\n")]);
+for (const [path, source] of Object.entries(copies)) {
+  if (existsSync(resolve(root, source))) outputs.push([path, readFileSync(resolve(root, source))]);
+}
+for (const [path, text] of Object.entries(texts)) outputs.push([path, Buffer.from(text)]);
+
 let stale = 0;
-for (const [path, value] of Object.entries(files)) {
+for (const [path, next] of outputs) {
   const target = resolve(root, path);
-  const next = JSON.stringify(value, null, 2) + "\n";
-  const current = existsSync(target) ? readFileSync(target, "utf8") : null;
-  if (current === next) continue;
+  const current = existsSync(target) ? readFileSync(target) : null;
+  if (current && current.equals(next)) continue;
   if (check) {
     stale += 1;
     console.error(`out of date: ${path}`);

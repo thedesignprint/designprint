@@ -1,8 +1,8 @@
 {
   "name": "designprint",
   "displayName": "Designprint",
-  "version": "1.0.2",
-  "description": "Print for AI agents. Makes business cards from a name and contact details, and prints flyers, posters, menus, invitations and postcards designed in the conversation, at an exact size. Returns a proof, the price and one link where the person pays as a guest. Ships within the United States.",
+  "version": "1.0.3",
+  "description": "Print for AI agents. Makes business cards from a name and contact details, and prints flyers, posters, menus and invitations designed in the conversation, at an exact size. Returns a proof, the price and one link where the person pays as a guest. Ships within the United States.",
   "author": {
     "name": "Designprint",
     "email": "team@thedesignprint.com",

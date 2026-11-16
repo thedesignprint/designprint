@@ -1,6 +1,6 @@
 ---
 name: designprint
-description: "Design and print physical pieces for the user and have them shipped: business cards, flyers, posters, menus, invitations and postcards. Use when the user wants something printed, wants business cards made or ordered, is designing something that is meant to be printed, or asks for a physical copy of a design from the conversation. Makes two-sided business cards from a name and contact details, or prints any design (HTML or an image) at an exact size in inches, and returns a proof, the price and one link where the person pays as a guest. Works through the Designprint MCP tools when they are connected, and over plain HTTPS with curl when they are not, with no account and no API key. Not for on-screen graphics such as social posts, slides or web images. Ships within the United States only."
+description: "Design and print physical pieces for the user and have them shipped: business cards, flyers, posters, menus and invitations. Use when the user wants something printed, wants business cards made or ordered, is designing something that is meant to be printed, or asks for a physical copy of a design from the conversation. Makes two-sided business cards from a name and contact details, or prints any design (HTML or an image) at an exact size in inches, and returns a proof, the price and one link where the person pays as a guest. Works through the Designprint MCP tools when they are connected, and over plain HTTPS with curl when they are not, with no account and no API key. Not for on-screen graphics such as social posts, slides or web images. Ships within the United States only."
 license: MIT
 metadata:
   author: designprint
@@ -18,7 +18,7 @@ Designprint is a print shop you can use on a person's behalf. You prepare the or
 | Business cards, and has not chosen a design | Call `show_card_designs` with their details. It shows their card in every design, each with its own order link. |
 | Business cards in a design they named | Call `create_business_card` with their details. You do not design the card. |
 | A change to a card you made | Call `update_business_card`. The card keeps its link. |
-| A flyer, poster, menu, invitation or postcard | Design it as HTML at the true print size (see "Designing for print"), then call `print_design`. |
+| A flyer, poster, menu or invitation | Design it as HTML at the true print size (see "Designing for print"), then call `print_design`. |
 | A print of an image they already have | Call `print_design` with `image_url`. |
 | To see a card as it is now | Call `get_business_card`. |
 | To know whether the order went through | Call `check_order`. |
@@ -100,7 +100,7 @@ Rules that keep the print right:
 - **One set of styles.** Do not use `@media print`, animations, or scripts that change the layout after the page loads.
 - Body text should be 9 pt or larger. A poster read from across a room needs far larger type than a flyer held in the hand.
 
-Common sizes in inches: flyer 8.5 x 11 or 5.5 x 8.5, invitation 5 x 7, small handout 4 x 6, menu 8.5 x 11 or 11 x 17, poster 11 x 17, 18 x 24 or 24 x 36, postcard 6 x 4.
+Common sizes in inches: flyer 8.5 x 11 or 5.5 x 8.5, invitation 5 x 7, small handout 4 x 6, menu 8.5 x 11 or 11 x 17, poster 11 x 17, 18 x 24 or 24 x 36.
 
 To send HTML over HTTPS, build the request with a JSON encoder so the document is escaped correctly:
 

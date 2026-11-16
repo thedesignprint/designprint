@@ -3,7 +3,7 @@
 Print for AI agents. Your agent designs it, Designprint prints it and ships it.
 
 - **Business cards** from a name and contact details. Two sides, in a choice of ready-made designs.
-- **Flyers, posters, menus, invitations and postcards** that the agent designs in the conversation, printed at the exact size you ask for.
+- **Flyers, posters, menus and invitations** that the agent designs in the conversation, printed at the exact size you ask for.
 - You get a proof, the price and one link. You pay as a guest. Nothing is printed until you pay.
 - Delivery is within the United States.
 
