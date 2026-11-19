@@ -51,11 +51,11 @@ Set `channel` to the name of the agent you are running in, for example `claude-c
 
 1. Ask for the person's **name** and at least one way to reach them (phone, email or website). Everything else is optional. Never invent a detail they did not give.
 2. Useful inputs for the card tools: `name`, `title`, `company`, `tagline`, `phone`, `email`, `website`, `address`, `logo_url`, `accent_color` (a hex color, such as their brand color) and `quantity`.
-3. **If they have not chosen a design,** call `show_card_designs`. It makes their card in every design and returns each one with its pictures and its own order link, plus one page that shows them all. Present every design the way the tool's description says, and let the user choose. Do not choose for them.
+3. **If they have not chosen a design,** call `show_card_designs`. It makes their card in a set of designs, each with its pictures, its name and its own link. If the Designprint gallery is showing in the chat, the user scrolls and chooses there: do not list the designs again and never show pictures of cards from anywhere else (web images, mockups). Otherwise list each design by name with its link. Ask which design they like, by its name. Do not choose for them, and never say how many designs there are; offer more designs instead.
 4. **If they named a design,** call `create_business_card` with `style` set to it. The tool's input schema lists the designs that exist.
-5. Show the user both sides. The pictures are in the result (`previewUrl` is the front, `backPreviewUrl` the back).
-6. Tell them the price from the result. When you passed `quantity`, the result states the total with shipping. Never quote a price from memory.
-7. Give them the order link (`orderUrl`). They choose a quantity and shipping there and pay as a guest.
+5. **Every change goes on the chosen card only:** call `update_business_card` with that card's link. The card keeps its link. Tell the user once that they can also edit it themselves at the edit link in the result.
+6. After showing the card and after every change, end your reply with: "Want to change anything, or print it?"
+7. When they say print, or ask about ordering, give them the order link (`orderUrl`) as "Click here to print". It opens checkout with that card, where they choose quantity, paper and shipping and pay as a guest. Quote prices only from the result.
 
 Good to know:
 
