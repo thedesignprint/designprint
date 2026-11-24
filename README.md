@@ -1,10 +1,11 @@
 # Designprint
 
-Print for AI agents. Your agent designs it, Designprint prints it and ships it.
+Print for AI agents. Pick a template or bring a design, and Designprint prints it and ships it.
 
-- **Business cards** from a name and contact details. Two sides, in a choice of ready-made designs.
-- **Flyers, posters, menus and invitations** that the agent designs in the conversation, printed at the exact size you ask for.
-- You get a proof, the price and one link. You pay as a guest. Nothing is printed until you pay.
+- **Templates** for business cards, flyers, postcards, posters, brochures, menus, invitations, stationery and tickets. The agent shows them with pictures, and the one you pick opens in an editor with your own details on it.
+- **Business cards in the chat** from a name and contact details. Two sides, in a choice of ready-made designs.
+- **Finished designs**, as an image or drawn in the conversation, printed at the exact size you ask for.
+- You get one link to check it and pay. You pay as a guest. Nothing is printed until you pay.
 - Delivery is within the United States.
 
 This repository is the plugin for Claude Code, Codex, Cursor, GitHub Copilot, Antigravity and Gemini CLI. It holds one skill that teaches the agent how to design for print and place the order, and the address of the hosted Designprint MCP server. There is no account to create and no key to set.
@@ -62,8 +63,8 @@ Add a connector with this address: `https://thedesignprint.com/mcp`
 
 ## Try it
 
-- "Make business cards for me and send me the link to order them."
-- "Design a flyer for my bakery's Saturday market and get it printed."
+- "Show me business card templates for a real estate agent."
+- "I need a flyer for my bakery's Saturday market."
 - "Print this poster at 18 x 24 inches and ship it to me."
 
 ## No install at all

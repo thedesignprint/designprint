@@ -1,6 +1,6 @@
 ---
 name: designprint
-description: "Design and print physical pieces for the user and have them shipped: business cards, flyers, posters, menus and invitations. Use when the user wants something printed, wants business cards made or ordered, is designing something that is meant to be printed, or asks for a physical copy of a design from the conversation. Makes two-sided business cards from a name and contact details, or prints any design (HTML or an image) at an exact size in inches, and returns a proof, the price and one link where the person pays as a guest. Works through the Designprint MCP tools when they are connected, and over plain HTTPS with curl when they are not, with no account and no API key. Not for on-screen graphics such as social posts, slides or web images. Ships within the United States only."
+description: "Make, design and print physical pieces for the user and have them shipped: business cards, flyers, postcards, posters, brochures, menus, invitations, stationery and tickets. Use when the user wants any of these made, designed, printed or ordered, or asks for a physical copy of a design from the conversation. Shows ready-made templates with pictures and opens the one the user picks in an editor with their own details already on it, makes two-sided business cards from a name and contact details, or prints a finished design (HTML or an image) at an exact size, and returns one link where the person pays as a guest. Works through the Designprint MCP tools when they are connected, and over plain HTTPS with curl when they are not, with no account and no API key. Not for on-screen graphics such as social posts, slides or web images. Ships within the United States only."
 license: MIT
 metadata:
   author: designprint
@@ -9,17 +9,18 @@ metadata:
 
 # Designprint
 
-Designprint is a print shop you can use on a person's behalf. You prepare the order. The person looks at the proof and pays from one link. Nothing is printed and nothing is charged until they pay. Delivery is within the United States.
+Designprint is a print shop you can use on a person's behalf. You prepare the order. The person checks the design and pays from one link. Nothing is printed and nothing is charged until they pay. Delivery is within the United States.
 
 ## What to do
 
 | The user wants | Do this |
 | --- | --- |
-| Business cards, and has not chosen a design | Call `show_card_designs` with their details. It shows their card in every design, each with its own order link. |
-| Business cards in a design they named | Call `create_business_card` with their details. You do not design the card. |
+| Something made or printed, and has no finished design (a flyer, menu, poster, postcard, brochure, invitation, business card, letterhead, ticket) | Call `show_templates`, let them pick, then call `open_template` with their details (see "Templates"). |
+| A business card made right in the chat, with nothing to open (for example on a phone) | Call `show_card_designs` with their details. It shows their card in a set of designs, each with its own order link. |
+| A business card in a card design they named | Call `create_business_card` with their details. You do not design the card. |
 | A change to a card you made | Call `update_business_card`. The card keeps its link. |
-| A flyer, poster, menu or invitation | Design it as HTML at the true print size (see "Designing for print"), then call `print_design`. |
-| A print of an image they already have | Call `print_design` with `image_url`. |
+| A design you drew for them in this chat, which they asked for and approved | Author it as HTML at the true print size (see "Designing for print"), then call `print_design`. |
+| A print of a finished image they already have | Call `print_design` with `image_url`. |
 | To see a card as it is now | Call `get_business_card`. |
 | To know whether the order went through | Call `check_order`. |
 
@@ -47,7 +48,18 @@ curl -s -X POST https://thedesignprint.com/mcp \
 
 Set `channel` to the name of the agent you are running in, for example `claude-code`, `codex` or `cursor`.
 
-## Business cards
+## Templates
+
+This is where a new design starts.
+
+1. Call `show_templates` with `product` and a few plain words in `about`, such as "yoga class" or "real estate agent". It returns templates, each with its title, a picture of every side and the texts it holds.
+2. If the Designprint gallery is showing in the chat, the user looks and chooses there. Otherwise show the pictures from the result, with each title. Ask which one they like. Do not choose for them, and never say how many templates there are; offer more instead (`page` 2, 3 and so on, or other words in `about`).
+3. Ask for the details the chosen template needs. Never invent one they did not give.
+4. Call `open_template` with the `template_id` and `replacements`: for each text to change, `find` is the template's text copied exactly from the result (same letters, spaces and line breaks) and `text` is the user's own. Texts you leave out stay as the template has them, so tell the user which sample texts are left.
+5. If the result lists texts that were not placed, correct them and call it again.
+6. Give them the link. It opens that template in the Designprint editor with their words on it. They can change anything there, then choose quantity, paper and shipping and pay on the same site.
+
+## Business cards in the chat
 
 1. Ask for the person's **name** and at least one way to reach them (phone, email or website). Everything else is optional. Never invent a detail they did not give.
 2. Useful inputs for the card tools: `name`, `title`, `company`, `tagline`, `phone`, `email`, `website`, `address`, `logo_url`, `accent_color` (a hex color, such as their brand color) and `quantity`.

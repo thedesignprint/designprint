@@ -1,8 +1,8 @@
 {
   "name": "designprint",
   "displayName": "Designprint",
-  "version": "1.0.6",
-  "description": "Make business cards and print flyers, posters and menus from the conversation.",
+  "version": "1.0.7",
+  "description": "Pick a template, put your details on it and order prints, from the conversation.",
   "author": {
     "name": "Designprint",
     "email": "team@thedesignprint.com"
@@ -14,9 +14,12 @@
   "keywords": [
     "print",
     "printing",
+    "templates",
     "business-cards",
     "flyers",
+    "postcards",
     "posters",
+    "brochures",
     "menus",
     "invitations",
     "design",

@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "designprint",
-  "version": "1.0.6",
-  "description": "Print for AI agents. Makes business cards from a name and contact details, and prints flyers, posters, menus and invitations designed in the conversation, at an exact size. Returns a proof, the price and one link where the person pays as a guest. Ships within the United States.",
+  "version": "1.0.7",
+  "description": "Print for AI agents. Shows ready-made templates for business cards, flyers, postcards, posters, brochures, menus, invitations, stationery and tickets, and opens the one you pick in an editor with your details on it. Also makes business cards in the chat and prints a finished design at an exact size. One link to pay as a guest. Ships within the United States.",
   "author": {
     "name": "Designprint",
     "email": "team@thedesignprint.com",
@@ -14,9 +14,12 @@
   "keywords": [
     "print",
     "printing",
+    "templates",
     "business-cards",
     "flyers",
+    "postcards",
     "posters",
+    "brochures",
     "menus",
     "invitations",
     "design",
@@ -26,8 +29,8 @@
     "com.openai": {
       "interface": {
         "displayName": "Designprint",
-        "shortDescription": "Design business cards in chat",
-        "longDescription": "Designprint is a print shop your agent can use. Ask for business cards and it makes a two-sided card from your name and contact details. Or have the agent design a flyer, poster, menu or invitation and print it at an exact size. You get a proof, the price and one link to approve it and pay as a guest. Nothing is printed until you pay. Delivery is within the United States.",
+        "shortDescription": "Design and print from chat",
+        "longDescription": "Designprint is a print shop your agent can use. Ask for business cards, a flyer, a menu, a poster, an invitation and more: your agent shows ready-made templates, and the one you pick opens in an editor with your own details already on it. It can also make a two-sided business card from your name and contact details right in the chat, or print a finished design at an exact size. You check it, then pay as a guest from one link. Nothing is printed until you pay. Delivery is within the United States.",
         "developerName": "Designprint",
         "category": "Creativity",
         "capabilities": [
@@ -40,8 +43,8 @@
         "privacyPolicyURL": "https://thedesignprint.com/terms#privacy",
         "termsOfServiceURL": "https://thedesignprint.com/terms",
         "defaultPrompt": [
-          "Make business cards for me and send me the link to order them",
-          "Design a flyer for my event and get it printed",
+          "Show me business card templates for a real estate agent",
+          "I need a flyer for my Saturday market",
           "Print this poster at 18 x 24 inches and ship it to me"
         ],
         "brandColor": "#0E1B2C",
